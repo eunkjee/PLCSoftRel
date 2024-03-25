@@ -22,7 +22,7 @@ def test():
 
 
 @router.post("/common")
-def pfd_calculation_api(request: dict):
+def bbn_inference_api(request: dict):
     response_handler = ResponseHandler()
     print(">>>>> api call")
 
@@ -30,4 +30,10 @@ def pfd_calculation_api(request: dict):
 
     print(data)
 
-    return []
+    # respond with dummy data
+    result_file = open("dummy_data.json", "r")
+    results = result_file.read()
+
+    response = json.loads(results)
+
+    return response

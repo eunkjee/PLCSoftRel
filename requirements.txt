@@ -38,3 +38,6 @@ jose==1.0.0
 passlib==1.7.4
 python-jose==3.3.0
 requests==2.31.0
+numpyro==0.14.0
+blackjax==1.1.1
+jax==0.4.25

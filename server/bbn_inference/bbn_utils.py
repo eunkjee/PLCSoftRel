@@ -3,6 +3,16 @@ import numpy as np
 import time
 import pymc as pm
 import pymc.sampling.jax as pmjax
+from scipy import stats
+
+# histogram intepolation
+def from_posterior(param, samples, bins=100):
+    smin, smax = np.min(samples), np.max(samples)
+    width = smax - smin
+    x = np.linspace(smin, smax, bins)
+    # y = stats.gaussian_kde(samples)(x)
+    y = stats.rv_histogram(np.histogram(samples, bins=bins)).pdf(x)
+    return pm.Interpolated(param, x, y)
 
 def print_pymc_version():
     print(f"Running on PyMC v{pm.__version__}")

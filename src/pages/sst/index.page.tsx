@@ -93,7 +93,9 @@ export default function Index() {
   TABS.forEach((tab) => {
     const tabData: Record<string, string> = {};
     tab.children.forEach((item) => {
-      tabData[item.label] = item.values[1];
+      let key = item.label as string;
+      let value = item.values[1] as string;
+      tabData[key] = value;
     });
     initialTabData[tab.label] = tabData;
   });

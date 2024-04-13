@@ -1,7 +1,6 @@
 import pymc as pm
 
 from .bbn_parameter import *
-from .data import *
 from .bbn_utils import from_posterior
 
 def create_SR_Dev_model(attr_states):

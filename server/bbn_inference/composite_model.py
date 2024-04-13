@@ -1513,8 +1513,7 @@ def create_IC_VV_model(attr_states):
 def create_composite_model(SR_Dev_trace, SR_VV_trace, SD_Dev_trace, SD_VV_trace,
                            IM_Dev_trace, IM_VV_trace, ST_Dev_trace, ST_VV_trace,
                            IC_Dev_trace, IC_VV_trace,
-                           generic_trace, function_point, interpolation_bins):
-    complexity = get_complexity(function_point)
+                           generic_trace, function_point, complexity, interpolation_bins):
     model = pm.Model()
     with model:
         # Submodel - Requirement phase

@@ -16,42 +16,51 @@ def demand_model_func(demand, observed_failures, pfd_trace):
     return demand_model
 
 def get_confidence(data, goal):
-    return np.count_nonzero(data.posterior["pfd_prior"] <= goal) / data.posterior["pfd_prior"]["draw"].size
+    return np.count_nonzero(data <= goal) / data["draw"].size
 
-demands = [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 11000, 12000, 13000, 14000, 15000]
-iterations = len(demands)
+max_demand = 25000
+demand_interval = 1000
+demand_start = 1000
 
 def get_number_of_required_demand(trace, pfd_goal, confidence_goal):
     # filter out outliers for interpolation
     filtered_pfd_trace = filter_outsiders(trace.posterior["PFD"])
 
-    original_confidence = np.count_nonzero(trace.posterior["PFD"] <= pfd_goal) / trace.posterior["PFD"]["draw"].size
+    # confidence level of pfd trace obtained from BBN model
+    original_confidence = get_confidence(trace.posterior["PFD"], pfd_goal)
 
-    demand_traces = []
+    demand_traces = [] # used for debugging
+    demands = []
     max_confidence = original_confidence
     confidence_levels = []
     means = []
 
-    for i in range(iterations):
-        print("number of demands: ", demands[i])
+    demand = demand_start
+
+    while demand <= max_demand:
+        print("number of demands: ", demand)
+        demands.append(demand)
         confidence = 0
         while confidence < max_confidence:
-            demand_trace = run_sampling(demand_model_func(demands[i], 0, filtered_pfd_trace))
-            confidence = get_confidence(demand_trace, pfd_goal)
+            demand_trace = run_sampling(demand_model_func(demand=demand, observed_failures=0, pfd_trace=filtered_pfd_trace))
+            confidence = get_confidence(demand_trace.posterior["pfd_prior"], pfd_goal)
             print("confidence: ", confidence)
             max_confidence = max(confidence, max_confidence)
         confidence_levels.append(confidence)
         means.append(demand_trace.posterior["pfd_prior"].mean().item())
         demand_traces.append(demand_trace)
-        if confidence >= confidence_goal:
+        if confidence == confidence_goal:
+            return demand
+        if confidence > confidence_goal:
             break
+        demand += demand_interval
 
-    required_demand = None
+    # require calculation of number of demands
     for index, level in enumerate(confidence_levels):
-        if level == confidence_goal:
-            required_demand = demands[index]
-            break
-        if level > confidence_goal and index - 1 > 0:
-            required_demand = ((confidence_goal - confidence_levels[index-1]) / (level - confidence_levels[index-1]) * (demands[index] - demands[index-1])) + demands[index-1]
-            break
-    return required_demand
+        if level > confidence_goal and index == 0:
+            return demand_start
+        if level > confidence_goal and index >= 1:
+            return ((confidence_goal - confidence_levels[index-1]) / (level - confidence_levels[index-1]) * demand_interval) + demands[index-1]
+
+    # TODO: when number of demands reaches maximum number of demands, confidence level still cannot reach confidence goal. Then what shall we return?
+    return max_demand

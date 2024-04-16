@@ -14,6 +14,9 @@ import { DUMMY_RESULT } from "@/constants/DUMMY_RESULT";
 export default function Result() {
   const router = useRouter();
   const result = router.query.data ? JSON.parse(router.query.data as string) : null;
+
+  // TODO: return a default page with message like "No results can be shown. Please submit your qualitative/quantitative data for your PLC software."
+  if (result == null) return (<></>);
   console.log(result);
 
   // dummy data

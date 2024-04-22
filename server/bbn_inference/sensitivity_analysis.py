@@ -1,7 +1,7 @@
 import pymc as pm
 import numpy as np
 from scipy import stats
-from bbn_utils import run_sampling, from_posterior
+from .bbn_utils import run_sampling, from_posterior
 
 def filter_outsiders(data, threshold=3):
     z_scores = stats.zscore(data[0])

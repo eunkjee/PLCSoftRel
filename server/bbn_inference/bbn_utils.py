@@ -51,7 +51,11 @@ def filtered_var_names(data):
     return list(filter(lambda x: x in [i for i in data.posterior.data_vars], monitor_var_names))
 
 def print_summary(data, round_to=5):
-    print(az.summary(data, var_names=filtered_var_names(data), stat_funcs=func_dict, round_to=round_to, extend=False))
+    var_names = filtered_var_names(data)
+    if not var_names:
+        print(az.summary(data, stat_funcs=func_dict, round_to=round_to, extend=False))
+    else:
+        print(az.summary(data, var_names=filtered_var_names(data), stat_funcs=func_dict, round_to=round_to, extend=False))
 
 def run_sampling(model, numpyro=False, draws=1000, tune=1000, chains=1):
     start = time.time()

@@ -1,7 +1,7 @@
 import pymc as pm
 import numpy as np
 from scipy import stats
-from bbn_utils import run_sampling, from_posterior
+from .bbn_utils import run_sampling, from_posterior
 
 def filter_outsiders(data, threshold=3):
     z_scores = stats.zscore(data[0])
@@ -21,6 +21,7 @@ def get_confidence(data, goal):
 max_demand = 25000
 demand_interval = 1000
 demand_start = 1000
+max_trial = 10 # used to prevent infinite loop
 
 def get_number_of_required_demand(trace, pfd_goal, confidence_goal):
     # filter out outliers for interpolation
@@ -36,16 +37,20 @@ def get_number_of_required_demand(trace, pfd_goal, confidence_goal):
     means = []
 
     demand = demand_start
-
+    print("Sensitivity Analysis start!")
     while demand <= max_demand:
         print("number of demands: ", demand)
         demands.append(demand)
         confidence = 0
+        trial = 0
         while confidence < max_confidence:
-            demand_trace = run_sampling(demand_model_func(demand=demand, observed_failures=0, pfd_trace=filtered_pfd_trace))
+            demand_trace = run_sampling(model=demand_model_func(demand=demand, observed_failures=0, pfd_trace=filtered_pfd_trace))
             confidence = get_confidence(demand_trace.posterior["pfd_prior"], pfd_goal)
             print("confidence: ", confidence)
             max_confidence = max(confidence, max_confidence)
+            trial += 1
+            if trial == max_trial:
+                break
         confidence_levels.append(confidence)
         means.append(demand_trace.posterior["pfd_prior"].mean().item())
         demand_traces.append(demand_trace)
@@ -54,6 +59,7 @@ def get_number_of_required_demand(trace, pfd_goal, confidence_goal):
         if confidence > confidence_goal:
             break
         demand += demand_interval
+    print("Sensitivity Analysis finished!")
 
     # require calculation of number of demands
     for index, level in enumerate(confidence_levels):

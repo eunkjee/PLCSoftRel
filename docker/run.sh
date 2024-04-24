@@ -7,4 +7,6 @@ cp -r ./assets ./public ./src .eslintrc.json next.config.js package-lock.json pa
 
 cd docker
 
+sed -i 's+127.0.0.1+{os.getenv("DB_HOST")}+g' ./backend/server/comm/db.py
+
 docker-compose up --build

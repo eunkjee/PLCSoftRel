@@ -83,7 +83,7 @@ npm install typescript --save-dev
 ### Installation with pymc
 Since the develop branch already contains the python code using pymc package, errors will happen if following the original installation steps.
 - If you prefer to follow the original installation steps, please remove the bbn_inference folder from the server folder.
-- Or you can execute create-virtual-env_win.cmd to setup virtual environment and run-server.cmd to run the server.
+- Or you can execute create-virtual-env_win.cmd to setup virtual environment and run-fastapi-server.cmd to run the FastAPI server.
 
 ### Installation Steps without pymc
 

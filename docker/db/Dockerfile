@@ -1,6 +1,6 @@
 FROM mysql:8.1.0
 
-ENV MYSQL_ROOT_PASSWORD=mysql
+ENV MYSQL_ROOT_PASSWORD=plcsoftrel
 
 ADD init.sql /docker-entrypoint-initdb.d
 

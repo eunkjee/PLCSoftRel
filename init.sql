@@ -1,13 +1,8 @@
--- root connection
-mysql -u root
-
-
--- create database
 CREATE DATABASE plc_prototype;
 
+USE plc_prototype;
 
--- create table
-CREATE TABLE plc_prototype.member (
+CREATE TABLE member (
     idx           INT auto_increment NOT NULL COMMENT 'index',
     user_email    VARCHAR(100) NOT NULL COMMENT 'email',
     user_password VARCHAR(100) NOT NULL COMMENT 'password',
@@ -15,7 +10,5 @@ CREATE TABLE plc_prototype.member (
 )
 ENGINE=InnoDB COMMENT='user information';
 
-
--- insert dummy data
-INSERT INTO plc_prototype.member (user_email, user_password) VALUES('user@user', 'user');
+INSERT INTO member (user_email, user_password) VALUES('user@user.com', 'userpassword');
 COMMIT;

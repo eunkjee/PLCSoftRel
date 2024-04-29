@@ -40,4 +40,5 @@ python-jose==3.3.0
 requests==2.31.0
 numpyro==0.14.0
 blackjax==1.1.1
-jax==0.4.25
+jax==0.4.26
+cryptography

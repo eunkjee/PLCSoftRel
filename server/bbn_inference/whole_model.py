@@ -1809,153 +1809,153 @@ def create_whole_model(inputData: BayesianData):
 
         # Attribute Software V&V Planning
         generic_SR_SVVP_VVH_like = pm.TruncatedNormal("generic_SR_SVVP_VVH_like",
-                                            mu=SR_SVVP_VVH_npt[attr_states["SR_SVVP_state"]][0], sigma=SR_SVVP_VVH_npt[attr_states["SR_SVVP_state"]][1],
+                                            mu=SR_SVVP_VVH_npt[generic_attr_states["SR_SVVP_state"]][0], sigma=SR_SVVP_VVH_npt[generic_attr_states["SR_SVVP_state"]][1],
                                             lower=0, upper=1)
         generic_SR_SVVP_VVM_like = pm.TruncatedNormal("generic_SR_SVVP_VVM_like",
-                                            mu=SR_SVVP_VVM_npt[attr_states["SR_SVVP_state"]][0], sigma=SR_SVVP_VVM_npt[attr_states["SR_SVVP_state"]][1],
+                                            mu=SR_SVVP_VVM_npt[generic_attr_states["SR_SVVP_state"]][0], sigma=SR_SVVP_VVM_npt[generic_attr_states["SR_SVVP_state"]][1],
                                             lower=0, upper=1)
         generic_SR_SVVP_VVL_like = pm.TruncatedNormal("generic_SR_SVVP_VVL_like",
-                                            mu=SR_SVVP_VVL_npt[attr_states["SR_SVVP_state"]][0], sigma=SR_SVVP_VVL_npt[attr_states["SR_SVVP_state"]][1],
+                                            mu=SR_SVVP_VVL_npt[generic_attr_states["SR_SVVP_state"]][0], sigma=SR_SVVP_VVL_npt[generic_attr_states["SR_SVVP_state"]][1],
                                             lower=0, upper=1)
         # Attribute Concept Documentation Evaluation
         generic_SR_CDE_VVH_like = pm.TruncatedNormal("generic_SR_CDE_VVH_like",
-                                            mu=SR_CDE_VVH_npt[attr_states["SR_CDE_state"]][0], sigma=SR_CDE_VVH_npt[attr_states["SR_CDE_state"]][1],
+                                            mu=SR_CDE_VVH_npt[generic_attr_states["SR_CDE_state"]][0], sigma=SR_CDE_VVH_npt[generic_attr_states["SR_CDE_state"]][1],
                                             lower=0, upper=1)
         generic_SR_CDE_VVM_like = pm.TruncatedNormal("generic_SR_CDE_VVM_like",
-                                            mu=SR_CDE_VVM_npt[attr_states["SR_CDE_state"]][0], sigma=SR_CDE_VVM_npt[attr_states["SR_CDE_state"]][1],
+                                            mu=SR_CDE_VVM_npt[generic_attr_states["SR_CDE_state"]][0], sigma=SR_CDE_VVM_npt[generic_attr_states["SR_CDE_state"]][1],
                                             lower=0, upper=1)
         generic_SR_CDE_VVL_like = pm.TruncatedNormal("generic_SR_CDE_VVL_like",
-                                            mu=SR_CDE_VVL_npt[attr_states["SR_CDE_state"]][0], sigma=SR_CDE_VVL_npt[attr_states["SR_CDE_state"]][1],
+                                            mu=SR_CDE_VVL_npt[generic_attr_states["SR_CDE_state"]][0], sigma=SR_CDE_VVL_npt[generic_attr_states["SR_CDE_state"]][1],
                                             lower=0, upper=1)
         # Attribute Hardware/Software/User Requirements Allocation Analysis
         generic_SR_HRAA_VVH_like = pm.TruncatedNormal("generic_SR_HRAA_VVH_like",
-                                            mu=SR_HRAA_VVH_npt[attr_states["SR_HRAA_state"]][0], sigma=SR_HRAA_VVH_npt[attr_states["SR_HRAA_state"]][1],
+                                            mu=SR_HRAA_VVH_npt[generic_attr_states["SR_HRAA_state"]][0], sigma=SR_HRAA_VVH_npt[generic_attr_states["SR_HRAA_state"]][1],
                                             lower=0, upper=1)
         generic_SR_HRAA_VVM_like = pm.TruncatedNormal("generic_SR_HRAA_VVM_like",
-                                            mu=SR_HRAA_VVM_npt[attr_states["SR_HRAA_state"]][0], sigma=SR_HRAA_VVM_npt[attr_states["SR_HRAA_state"]][1],
+                                            mu=SR_HRAA_VVM_npt[generic_attr_states["SR_HRAA_state"]][0], sigma=SR_HRAA_VVM_npt[generic_attr_states["SR_HRAA_state"]][1],
                                             lower=0, upper=1)
         generic_SR_HRAA_VVL_like = pm.TruncatedNormal("generic_SR_HRAA_VVL_like",
-                                            mu=SR_HRAA_VVL_npt[attr_states["SR_HRAA_state"]][0], sigma=SR_HRAA_VVL_npt[attr_states["SR_HRAA_state"]][1],
+                                            mu=SR_HRAA_VVL_npt[generic_attr_states["SR_HRAA_state"]][0], sigma=SR_HRAA_VVL_npt[generic_attr_states["SR_HRAA_state"]][1],
                                             lower=0, upper=1)
         # Attribute Document of Software Requirements Evaluation
         generic_SR_SRE_VVH_like = pm.TruncatedNormal("generic_SR_SRE_VVH_like",
-                                            mu=SR_SRE_VVH_npt[attr_states["SR_SRE_state"]][0], sigma=SR_SRE_VVH_npt[attr_states["SR_SRE_state"]][1],
+                                            mu=SR_SRE_VVH_npt[generic_attr_states["SR_SRE_state"]][0], sigma=SR_SRE_VVH_npt[generic_attr_states["SR_SRE_state"]][1],
                                             lower=0, upper=1)
         generic_SR_SRE_VVM_like = pm.TruncatedNormal("generic_SR_SRE_VVM_like",
-                                            mu=SR_SRE_VVM_npt[attr_states["SR_SRE_state"]][0], sigma=SR_SRE_VVM_npt[attr_states["SR_SRE_state"]][1],
+                                            mu=SR_SRE_VVM_npt[generic_attr_states["SR_SRE_state"]][0], sigma=SR_SRE_VVM_npt[generic_attr_states["SR_SRE_state"]][1],
                                             lower=0, upper=1)
         generic_SR_SRE_VVL_like = pm.TruncatedNormal("generic_SR_SRE_VVL_like",
-                                            mu=SR_SRE_VVL_npt[attr_states["SR_SRE_state"]][0], sigma=SR_SRE_VVL_npt[attr_states["SR_SRE_state"]][1],
+                                            mu=SR_SRE_VVL_npt[generic_attr_states["SR_SRE_state"]][0], sigma=SR_SRE_VVL_npt[generic_attr_states["SR_SRE_state"]][1],
                                             lower=0, upper=1)
         # Attribute Interface Analysis V&V
         generic_SR_IAVV_VVH_like = pm.TruncatedNormal("generic_SR_IAVV_VVH_like",
-                                            mu=SR_IAVV_VVH_npt[attr_states["SR_IAVV_state"]][0], sigma=SR_IAVV_VVH_npt[attr_states["SR_IAVV_state"]][1],
+                                            mu=SR_IAVV_VVH_npt[generic_attr_states["SR_IAVV_state"]][0], sigma=SR_IAVV_VVH_npt[generic_attr_states["SR_IAVV_state"]][1],
                                             lower=0, upper=1)
         generic_SR_IAVV_VVM_like = pm.TruncatedNormal("generic_SR_IAVV_VVM_like",
-                                            mu=SR_IAVV_VVM_npt[attr_states["SR_IAVV_state"]][0], sigma=SR_IAVV_VVM_npt[attr_states["SR_IAVV_state"]][1],
+                                            mu=SR_IAVV_VVM_npt[generic_attr_states["SR_IAVV_state"]][0], sigma=SR_IAVV_VVM_npt[generic_attr_states["SR_IAVV_state"]][1],
                                             lower=0, upper=1)
         generic_SR_IAVV_VVL_like = pm.TruncatedNormal("generic_SR_IAVV_VVL_like",
-                                            mu=SR_IAVV_VVL_npt[attr_states["SR_IAVV_state"]][0], sigma=SR_IAVV_VVL_npt[attr_states["SR_IAVV_state"]][1],
+                                            mu=SR_IAVV_VVL_npt[generic_attr_states["SR_IAVV_state"]][0], sigma=SR_IAVV_VVL_npt[generic_attr_states["SR_IAVV_state"]][1],
                                             lower=0, upper=1)
         # Attribute Traceability Analysis V&V
         generic_SR_TAVV_VVH_like = pm.TruncatedNormal("generic_SR_TAVV_VVH_like",
-                                            mu=SR_TAVV_VVH_npt[attr_states["SR_TAVV_state"]][0], sigma=SR_TAVV_VVH_npt[attr_states["SR_TAVV_state"]][1],
+                                            mu=SR_TAVV_VVH_npt[generic_attr_states["SR_TAVV_state"]][0], sigma=SR_TAVV_VVH_npt[generic_attr_states["SR_TAVV_state"]][1],
                                             lower=0, upper=1)
         generic_SR_TAVV_VVM_like = pm.TruncatedNormal("generic_SR_TAVV_VVM_like",
-                                            mu=SR_TAVV_VVM_npt[attr_states["SR_TAVV_state"]][0], sigma=SR_TAVV_VVM_npt[attr_states["SR_TAVV_state"]][1],
+                                            mu=SR_TAVV_VVM_npt[generic_attr_states["SR_TAVV_state"]][0], sigma=SR_TAVV_VVM_npt[generic_attr_states["SR_TAVV_state"]][1],
                                             lower=0, upper=1)
         generic_SR_TAVV_VVL_like = pm.TruncatedNormal("generic_SR_TAVV_VVL_like",
-                                            mu=SR_TAVV_VVL_npt[attr_states["SR_TAVV_state"]][0], sigma=SR_TAVV_VVL_npt[attr_states["SR_TAVV_state"]][1],
+                                            mu=SR_TAVV_VVL_npt[generic_attr_states["SR_TAVV_state"]][0], sigma=SR_TAVV_VVL_npt[generic_attr_states["SR_TAVV_state"]][1],
                                             lower=0, upper=1)
         # Attribute Criticality Analysis V&V
         generic_SR_CAVV_VVH_like = pm.TruncatedNormal("generic_SR_CAVV_VVH_like",
-                                            mu=SR_CAVV_VVH_npt[attr_states["SR_CAVV_state"]][0], sigma=SR_CAVV_VVH_npt[attr_states["SR_CAVV_state"]][1],
+                                            mu=SR_CAVV_VVH_npt[generic_attr_states["SR_CAVV_state"]][0], sigma=SR_CAVV_VVH_npt[generic_attr_states["SR_CAVV_state"]][1],
                                             lower=0, upper=1)
         generic_SR_CAVV_VVM_like = pm.TruncatedNormal("generic_SR_CAVV_VVM_like",
-                                            mu=SR_CAVV_VVM_npt[attr_states["SR_CAVV_state"]][0], sigma=SR_CAVV_VVM_npt[attr_states["SR_CAVV_state"]][1],
+                                            mu=SR_CAVV_VVM_npt[generic_attr_states["SR_CAVV_state"]][0], sigma=SR_CAVV_VVM_npt[generic_attr_states["SR_CAVV_state"]][1],
                                             lower=0, upper=1)
         generic_SR_CAVV_VVL_like = pm.TruncatedNormal("generic_SR_CAVV_VVL_like",
-                                            mu=SR_CAVV_VVL_npt[attr_states["SR_CAVV_state"]][0], sigma=SR_CAVV_VVL_npt[attr_states["SR_CAVV_state"]][1],
+                                            mu=SR_CAVV_VVL_npt[generic_attr_states["SR_CAVV_state"]][0], sigma=SR_CAVV_VVL_npt[generic_attr_states["SR_CAVV_state"]][1],
                                             lower=0, upper=1)
         # Attribute Hazard Analysis V&V
         generic_SR_HAVV_VVH_like = pm.TruncatedNormal("generic_SR_HAVV_VVH_like",
-                                            mu=SR_HAVV_VVH_npt[attr_states["SR_HAVV_state"]][0], sigma=SR_HAVV_VVH_npt[attr_states["SR_HAVV_state"]][1],
+                                            mu=SR_HAVV_VVH_npt[generic_attr_states["SR_HAVV_state"]][0], sigma=SR_HAVV_VVH_npt[generic_attr_states["SR_HAVV_state"]][1],
                                             lower=0, upper=1)
         generic_SR_HAVV_VVM_like = pm.TruncatedNormal("generic_SR_HAVV_VVM_like",
-                                            mu=SR_HAVV_VVM_npt[attr_states["SR_HAVV_state"]][0], sigma=SR_HAVV_VVM_npt[attr_states["SR_HAVV_state"]][1],
+                                            mu=SR_HAVV_VVM_npt[generic_attr_states["SR_HAVV_state"]][0], sigma=SR_HAVV_VVM_npt[generic_attr_states["SR_HAVV_state"]][1],
                                             lower=0, upper=1)
         generic_SR_HAVV_VVL_like = pm.TruncatedNormal("generic_SR_HAVV_VVL_like",
-                                            mu=SR_HAVV_VVL_npt[attr_states["SR_HAVV_state"]][0], sigma=SR_HAVV_VVL_npt[attr_states["SR_HAVV_state"]][1],
+                                            mu=SR_HAVV_VVL_npt[generic_attr_states["SR_HAVV_state"]][0], sigma=SR_HAVV_VVL_npt[generic_attr_states["SR_HAVV_state"]][1],
                                             lower=0, upper=1)
         # Attribute Security Analysis V&V
         generic_SR_SAVV_VVH_like = pm.TruncatedNormal("generic_SR_SAVV_VVH_like",
-                                            mu=SR_SAVV_VVH_npt[attr_states["SR_SAVV_state"]][0], sigma=SR_SAVV_VVH_npt[attr_states["SR_SAVV_state"]][1],
+                                            mu=SR_SAVV_VVH_npt[generic_attr_states["SR_SAVV_state"]][0], sigma=SR_SAVV_VVH_npt[generic_attr_states["SR_SAVV_state"]][1],
                                             lower=0, upper=1)
         generic_SR_SAVV_VVM_like = pm.TruncatedNormal("generic_SR_SAVV_VVM_like",
-                                            mu=SR_SAVV_VVM_npt[attr_states["SR_SAVV_state"]][0], sigma=SR_SAVV_VVM_npt[attr_states["SR_SAVV_state"]][1],
+                                            mu=SR_SAVV_VVM_npt[generic_attr_states["SR_SAVV_state"]][0], sigma=SR_SAVV_VVM_npt[generic_attr_states["SR_SAVV_state"]][1],
                                             lower=0, upper=1)
         generic_SR_SAVV_VVL_like = pm.TruncatedNormal("generic_SR_SAVV_VVL_like",
-                                            mu=SR_SAVV_VVL_npt[attr_states["SR_SAVV_state"]][0], sigma=SR_SAVV_VVL_npt[attr_states["SR_SAVV_state"]][1],
+                                            mu=SR_SAVV_VVL_npt[generic_attr_states["SR_SAVV_state"]][0], sigma=SR_SAVV_VVL_npt[generic_attr_states["SR_SAVV_state"]][1],
                                             lower=0, upper=1)
         # Attribute Risk Analysis V&V
         generic_SR_RAVV_VVH_like = pm.TruncatedNormal("generic_SR_RAVV_VVH_like",
-                                            mu=SR_RAVV_VVH_npt[attr_states["SR_RAVV_state"]][0], sigma=SR_RAVV_VVH_npt[attr_states["SR_RAVV_state"]][1],
+                                            mu=SR_RAVV_VVH_npt[generic_attr_states["SR_RAVV_state"]][0], sigma=SR_RAVV_VVH_npt[generic_attr_states["SR_RAVV_state"]][1],
                                             lower=0, upper=1)
         generic_SR_RAVV_VVM_like = pm.TruncatedNormal("generic_SR_RAVV_VVM_like",
-                                            mu=SR_RAVV_VVM_npt[attr_states["SR_RAVV_state"]][0], sigma=SR_RAVV_VVM_npt[attr_states["SR_RAVV_state"]][1],
+                                            mu=SR_RAVV_VVM_npt[generic_attr_states["SR_RAVV_state"]][0], sigma=SR_RAVV_VVM_npt[generic_attr_states["SR_RAVV_state"]][1],
                                             lower=0, upper=1)
         generic_SR_RAVV_VVL_like = pm.TruncatedNormal("generic_SR_RAVV_VVL_like",
-                                            mu=SR_RAVV_VVL_npt[attr_states["SR_RAVV_state"]][0], sigma=SR_RAVV_VVL_npt[attr_states["SR_RAVV_state"]][1],
+                                            mu=SR_RAVV_VVL_npt[generic_attr_states["SR_RAVV_state"]][0], sigma=SR_RAVV_VVL_npt[generic_attr_states["SR_RAVV_state"]][1],
                                             lower=0, upper=1)
         # Attribute V&V System/Software Quantification Test Plan Generation
         generic_SR_VVSQTPG_VVH_like = pm.TruncatedNormal("generic_SR_VVSQTPG_VVH_like",
-                                                mu=SR_VVSQTPG_VVH_npt[attr_states["SR_VVSQTPG_state"]][0], sigma=SR_VVSQTPG_VVH_npt[attr_states["SR_VVSQTPG_state"]][1],
+                                                mu=SR_VVSQTPG_VVH_npt[generic_attr_states["SR_VVSQTPG_state"]][0], sigma=SR_VVSQTPG_VVH_npt[generic_attr_states["SR_VVSQTPG_state"]][1],
                                                 lower=0, upper=1)
         generic_SR_VVSQTPG_VVM_like = pm.TruncatedNormal("generic_SR_VVSQTPG_VVM_like",
-                                                mu=SR_VVSQTPG_VVM_npt[attr_states["SR_VVSQTPG_state"]][0], sigma=SR_VVSQTPG_VVM_npt[attr_states["SR_VVSQTPG_state"]][1],
+                                                mu=SR_VVSQTPG_VVM_npt[generic_attr_states["SR_VVSQTPG_state"]][0], sigma=SR_VVSQTPG_VVM_npt[generic_attr_states["SR_VVSQTPG_state"]][1],
                                                 lower=0, upper=1)
         generic_SR_VVSQTPG_VVL_like = pm.TruncatedNormal("generic_SR_VVSQTPG_VVL_like",
-                                                mu=SR_VVSQTPG_VVL_npt[attr_states["SR_VVSQTPG_state"]][0], sigma=SR_VVSQTPG_VVL_npt[attr_states["SR_VVSQTPG_state"]][1],
+                                                mu=SR_VVSQTPG_VVL_npt[generic_attr_states["SR_VVSQTPG_state"]][0], sigma=SR_VVSQTPG_VVL_npt[generic_attr_states["SR_VVSQTPG_state"]][1],
                                                 lower=0, upper=1)
         # Attribute V&V Software Acceptance Test Plan Generation
         generic_SR_VVSATPG_VVH_like = pm.TruncatedNormal("generic_SR_VVSATPG_VVH_like",
-                                                mu=SR_VVSATPG_VVH_npt[attr_states["SR_VVSATPG_state"]][0], sigma=SR_VVSATPG_VVH_npt[attr_states["SR_VVSATPG_state"]][1],
+                                                mu=SR_VVSATPG_VVH_npt[generic_attr_states["SR_VVSATPG_state"]][0], sigma=SR_VVSATPG_VVH_npt[generic_attr_states["SR_VVSATPG_state"]][1],
                                                 lower=0, upper=1)
         generic_SR_VVSATPG_VVM_like = pm.TruncatedNormal("generic_SR_VVSATPG_VVM_like",
-                                                mu=SR_VVSATPG_VVM_npt[attr_states["SR_VVSATPG_state"]][0], sigma=SR_VVSATPG_VVM_npt[attr_states["SR_VVSATPG_state"]][1],
+                                                mu=SR_VVSATPG_VVM_npt[generic_attr_states["SR_VVSATPG_state"]][0], sigma=SR_VVSATPG_VVM_npt[generic_attr_states["SR_VVSATPG_state"]][1],
                                                 lower=0, upper=1)
         generic_SR_VVSATPG_VVL_like = pm.TruncatedNormal("generic_SR_VVSATPG_VVL_like",
-                                                mu=SR_VVSATPG_VVL_npt[attr_states["SR_VVSATPG_state"]][0], sigma=SR_VVSATPG_VVL_npt[attr_states["SR_VVSATPG_state"]][1],
+                                                mu=SR_VVSATPG_VVL_npt[generic_attr_states["SR_VVSATPG_state"]][0], sigma=SR_VVSATPG_VVL_npt[generic_attr_states["SR_VVSATPG_state"]][1],
                                                 lower=0, upper=1)
         # Attribute Configuration Management Assessment
         generic_SR_CMA_VVH_like = pm.TruncatedNormal("generic_SR_CMA_VVH_like",
-                                            mu=SR_CMA_VVH_npt[attr_states["SR_CMA_state"]][0], sigma=SR_CMA_VVH_npt[attr_states["SR_CMA_state"]][1],
+                                            mu=SR_CMA_VVH_npt[generic_attr_states["SR_CMA_state"]][0], sigma=SR_CMA_VVH_npt[generic_attr_states["SR_CMA_state"]][1],
                                             lower=0, upper=1)
         generic_SR_CMA_VVM_like = pm.TruncatedNormal("generic_SR_CMA_VVM_like",
-                                            mu=SR_CMA_VVM_npt[attr_states["SR_CMA_state"]][0], sigma=SR_CMA_VVM_npt[attr_states["SR_CMA_state"]][1],
+                                            mu=SR_CMA_VVM_npt[generic_attr_states["SR_CMA_state"]][0], sigma=SR_CMA_VVM_npt[generic_attr_states["SR_CMA_state"]][1],
                                             lower=0, upper=1)
         generic_SR_CMA_VVL_like = pm.TruncatedNormal("generic_SR_CMA_VVL_like",
-                                            mu=SR_CMA_VVL_npt[attr_states["SR_CMA_state"]][0], sigma=SR_CMA_VVL_npt[attr_states["SR_CMA_state"]][1],
+                                            mu=SR_CMA_VVL_npt[generic_attr_states["SR_CMA_state"]][0], sigma=SR_CMA_VVL_npt[generic_attr_states["SR_CMA_state"]][1],
                                             lower=0, upper=1)
         # Attribute Reviews and Audit V&V
         generic_SR_RaAVV_VVH_like = pm.TruncatedNormal("generic_SR_RaAVV_VVH_like",
-                                            mu=SR_RaAVV_VVH_npt[attr_states["SR_RaAVV_state"]][0], sigma=SR_RaAVV_VVH_npt[attr_states["SR_RaAVV_state"]][1],
+                                            mu=SR_RaAVV_VVH_npt[generic_attr_states["SR_RaAVV_state"]][0], sigma=SR_RaAVV_VVH_npt[generic_attr_states["SR_RaAVV_state"]][1],
                                             lower=0, upper=1)
         generic_SR_RaAVV_VVM_like = pm.TruncatedNormal("generic_SR_RaAVV_VVM_like",
-                                            mu=SR_RaAVV_VVM_npt[attr_states["SR_RaAVV_state"]][0], sigma=SR_RaAVV_VVM_npt[attr_states["SR_RaAVV_state"]][1],
+                                            mu=SR_RaAVV_VVM_npt[generic_attr_states["SR_RaAVV_state"]][0], sigma=SR_RaAVV_VVM_npt[generic_attr_states["SR_RaAVV_state"]][1],
                                             lower=0, upper=1)
         generic_SR_RaAVV_VVL_like = pm.TruncatedNormal("generic_SR_RaAVV_VVL_like",
-                                            mu=SR_RaAVV_VVL_npt[attr_states["SR_RaAVV_state"]][0], sigma=SR_RaAVV_VVL_npt[attr_states["SR_RaAVV_state"]][1],
+                                            mu=SR_RaAVV_VVL_npt[generic_attr_states["SR_RaAVV_state"]][0], sigma=SR_RaAVV_VVL_npt[generic_attr_states["SR_RaAVV_state"]][1],
                                             lower=0, upper=1)
         # Attribute V&V Requirements Specifications Phase Activity Summary Report Generation
         generic_SR_VVASRG_VVH_like = pm.TruncatedNormal("generic_SR_VVASRG_VVH_like",
-                                                mu=SR_VVASRG_VVH_npt[attr_states["SR_VVASRG_state"]][0], sigma=SR_VVASRG_VVH_npt[attr_states["SR_VVASRG_state"]][1],
+                                                mu=SR_VVASRG_VVH_npt[generic_attr_states["SR_VVASRG_state"]][0], sigma=SR_VVASRG_VVH_npt[generic_attr_states["SR_VVASRG_state"]][1],
                                                 lower=0, upper=1)
         generic_SR_VVASRG_VVM_like = pm.TruncatedNormal("generic_SR_VVASRG_VVM_like",
-                                                mu=SR_VVASRG_VVM_npt[attr_states["SR_VVASRG_state"]][0], sigma=SR_VVASRG_VVM_npt[attr_states["SR_VVASRG_state"]][1],
+                                                mu=SR_VVASRG_VVM_npt[generic_attr_states["SR_VVASRG_state"]][0], sigma=SR_VVASRG_VVM_npt[generic_attr_states["SR_VVASRG_state"]][1],
                                                 lower=0, upper=1)
         generic_SR_VVASRG_VVL_like = pm.TruncatedNormal("generic_SR_VVASRG_VVL_like",
-                                                mu=SR_VVASRG_VVL_npt[attr_states["SR_VVASRG_state"]][0], sigma=SR_VVASRG_VVL_npt[attr_states["SR_VVASRG_state"]][1],
+                                                mu=SR_VVASRG_VVL_npt[generic_attr_states["SR_VVASRG_state"]][0], sigma=SR_VVASRG_VVL_npt[generic_attr_states["SR_VVASRG_state"]][1],
                                                 lower=0, upper=1)
         # m1-m3: a part of marginal probability
         # m1 = P(VV=H)P(attribute states|VV=H)

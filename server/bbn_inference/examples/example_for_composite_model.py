@@ -3,7 +3,17 @@ import arviz as az
 from bbn_inference.bbn_utils import run_sampling
 from bbn_inference.data import nrc_report_data
 from bbn_inference.composite_model import *
+from bbn_inference.generic_model import create_generic_model
 
+# this might take 10 minutes to run
+# this is for preprocessing. saving the number of generic defects in a local file and reading the trace as an input of the composite model
+def run_example_for_generic_model():
+    generic_model = create_generic_model()
+    generic_trace = run_sampling(model=generic_model, numpyro=True, draws=1000, tune=1000)
+    # save simulation traces into a local file
+    generic_trace.to_netcdf(filename="generic_model_trace_data_1000.nc")
+
+# this one is fast
 def run_example_for_composite_model():
 
     data = nrc_report_data()
@@ -29,11 +39,10 @@ def run_example_for_composite_model():
     IC_Dev_trace = run_sampling(IC_Dev_model, True)
     IC_VV_trace = run_sampling(IC_VV_model, True)
 
-    # TODO: run sampling for whole model and save the trace to be used as generic trace (simulation traces for generic number of defects)
-    # the below code is used to save simulation traces into a local file
-    # eg. whole_model_trace.to_netcdf(filename="whole_model_trace_data_1000.nc")
+    # TODO: run sampling for generic model and save the trace to be used as generic trace (simulation traces for generic number of defects)
     # the example trace was collected with the following sampling configuration (draws=1000, tunes=1000, numpyro=True)
-    generic_trace = az.from_netcdf("./bbn_inference/examples/whole_model_trace_data_1000.nc")
+    # I suggest not to use this example trace for actual implementation, but it's okay for testing the execution
+    generic_trace = az.from_netcdf("./bbn_inference/examples/generic_model_trace_data_1000.nc")
 
     model = create_composite_model(SR_Dev_trace=SR_Dev_trace, SR_VV_trace=SR_VV_trace,
                                    SD_Dev_trace=SD_Dev_trace, SD_VV_trace=SD_VV_trace,

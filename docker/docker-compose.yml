@@ -1,0 +1,22 @@
+services:
+  db:
+    build: ./db # build the Dockerfile in db folder
+    container_name: mysql-server
+    ports:
+      - "3306:3306" # port1:port2
+      # port1: host's port number
+      # port2: container's port number
+  backend:
+    build: ./backend
+    container_name: fastapi-server
+    depends_on:
+      - db # the creation of this container depends on the db service, so it will wait until the mysql-server container is created
+    ports:
+      - "8000:8000"
+  frontend:
+    build: ./frontend
+    container_name: nextjs-server
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"
